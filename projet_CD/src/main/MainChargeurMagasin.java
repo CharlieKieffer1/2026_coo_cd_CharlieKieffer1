@@ -29,19 +29,22 @@ public class MainChargeurMagasin {
 		Magasin resultat = charge.chargerMagasin();
 		System.out.println(resultat);
 
+		System.out.println("Saisissez 1 pour trier par artiste, 2 par album et 3 par pistes");
+
 		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
+		switch (sc.nextLine()){
+			case "1":
+				resultat.trier(new ComparateurArtiste());
+				break;
+			case "2":
+				resultat.trier(new ComparateurAlbum());
+				break;
+			case "3":
+				resultat.trier(new ComparateurPistes());
+				break;
+		}
+		System.out.println(resultat);
 		sc.close();
-
-		resultat.trier(new ComparateurArtiste());
-		System.out.println(resultat);
-
-		resultat.trier(new ComparateurAlbum());
-		System.out.println(resultat);
-
-		resultat.trier(new ComparateurPistes());
-		System.out.println(resultat);
-
 
 	}
 
