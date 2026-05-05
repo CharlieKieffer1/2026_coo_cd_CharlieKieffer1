@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import comparateur.ComparateurAlbum;
+import comparateur.ComparateurArtiste;
 import donnees.CD;
 import donnees.Magasin;
 
 /**
- * classe de test de la classe Magasin (méthodes de tri)
+ * classe de test de la classe Magasin (methodes de tri)
  */
 public class TestMagasin {
 
@@ -16,7 +18,7 @@ public class TestMagasin {
 	/**
 	 * test de la methode triArtiste
 	 */
-	public void testTriArtiste() {
+	public void testTriGenerique_Artiste() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		CD cd1;
@@ -30,7 +32,7 @@ public class TestMagasin {
 		m.ajouteCd(cd4);
 
 		// methode de tri
-		m.trierAriste();
+		m.trier(new ComparateurArtiste());
 
 		// verification
 		CD cd = m.getCd(0);
@@ -48,7 +50,7 @@ public class TestMagasin {
 	/**
 	 * test de la methode triArtiste quand deja trie
 	 */
-	public void testTriArtiste_DejaTrie() {
+	public void testTriGenerique_Artiste_DejaTrie() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		CD cd1 = new CD("Bieber", "Believe");
@@ -61,7 +63,7 @@ public class TestMagasin {
 		m.ajouteCd(cd3);
 
 		// methode de tri
-		m.trierAriste();
+		m.trier(new ComparateurArtiste());
 
 		// verification
 		CD cd = m.getCd(0);
@@ -79,18 +81,18 @@ public class TestMagasin {
 	/**
 	 * test de la methode triArtiste quand vide
 	 */
-	public void testTriArtiste_Vide() {
+	public void testTriGenerique_Artiste_Vide() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		// methode de tri
-		m.trierAriste();
+		m.trier(new ComparateurArtiste());
 	}
 
 	/**
 	 * test de la methode triAlbum quand trie
 	 */
 	@Test
-	public void testTriAlbum_DejaTrie() {
+	public void testTriGenerique_Album_DejaTrie() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		CD cd1;
@@ -104,7 +106,7 @@ public class TestMagasin {
 		m.ajouteCd(cd4);
 
 		// methode de tri
-		m.trierAlbum();
+		m.trier(new ComparateurAlbum());
 
 		// verification
 		CD cd = m.getCd(0);
@@ -122,7 +124,7 @@ public class TestMagasin {
 	/**
 	 * test de la methode triAlbum quand non trie
 	 */
-	public void testTriAlbum_NonTrie() {
+	public void testTriGenerique_Album_NonTrie() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		CD cd1 = new CD("Bieber", "Believe");
@@ -135,7 +137,7 @@ public class TestMagasin {
 		m.ajouteCd(cd3);
 
 		// methode de tri
-		m.trierAlbum();
+		m.trier(new ComparateurAlbum());
 
 		// verification
 		CD cd = m.getCd(0);
@@ -153,11 +155,11 @@ public class TestMagasin {
 	/**
 	 * test de la methode triAlbum quand vide
 	 */
-	public void testTriAlbum_Vide() {
+	public void testTriGenerique_Album_Vide() {
 		// preparation des donnees
 		Magasin m = new Magasin();
 		// methode de tri
-		m.trierAlbum();
+		m.trier(new ComparateurAlbum());
 	}
 
 }

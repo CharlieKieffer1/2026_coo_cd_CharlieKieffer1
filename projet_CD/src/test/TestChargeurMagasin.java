@@ -20,7 +20,7 @@ public class TestChargeurMagasin {
 	 */
 	public void testChargerMagasinOK() throws IOException {
 		//preparation des donnees
-		ChargeurMagasin chargeurMagasin=new ChargeurMagasin("../magasinCD_donnees/musicbrainzSimple");
+		ChargeurMagasin chargeurMagasin=new ChargeurMagasin("\\\\etu\\p00830\\Documents\\COO\\TD_CD\\2026_coo_cd_CharlieKieffer1\\projet_CD\\src\\musicbrainzSimple");
 		
 		//methode testee
 		Magasin m=chargeurMagasin.chargerMagasin();
